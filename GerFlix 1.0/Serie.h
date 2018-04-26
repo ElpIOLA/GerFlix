@@ -1,6 +1,5 @@
 
-typedef struct
-{
+typedef struct{
     int idSerie;
     char nombre[50];
     char genero[20];
