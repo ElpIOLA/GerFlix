@@ -39,6 +39,7 @@ int main()
                 mostrarUsuarioConSuSerie(listaDeUsuarios,15,listaDeSeries,5);
                 break;
             case 4:
+                mostrarSerieConSuUser(listaDeSeries,5,listaDeUsuarios,15);
                 break;
             case 5:
                 seguir = 'n';

@@ -85,13 +85,31 @@ void mostrarUsuarioConSuSerie(eUsuario user[], int cantUser, eSerie serie[], int
      }
 }
 
-/*
-for(i=0;i<cantSerie-1;i++){
-                        for(j=i+1;j<cantSerie;j++){
-                            if(serie[i].idSerie>serie[j].idSerie){
-                                auxIdSerie = serie[i].idSerie;
-                                serie[i].idSerie = serie[j].idSerie;
-                                serie[j].idSerie = auxIdSerie;
-                            }
-                        }
-                    }*/
+void mostrarSerieConSuUser(eSerie serie[], int cantSerie, eUsuario user[], int cantUser){
+    int i, j, auxId;
+    char auxNom[21], auxNomUser[21];
+
+    for(i=0;i<cantSerie-1;i++){
+        for(j=i+1;j<cantSerie;j++){
+            if(serie[i].idSerie == user[i].idSerie){
+                if(serie[i].idSerie>serie[j].idSerie){
+                    auxId = serie[i].idSerie;
+                    serie[i].idSerie = serie[j].idSerie;
+                    serie[j].idSerie = auxId;
+
+                    strcpy(auxNom,serie[i].nombre);
+                    strcpy(serie[i].nombre,serie[j].nombre);
+                    strcpy(serie[j].nombre,auxNom);
+
+                    strcpy(auxNomUser,user[i].nombre);
+                    strcpy(user[i].nombre,user[j].nombre);
+                    strcpy(user[j].nombre,auxNomUser);
+                }
+            }
+        }
+    }
+
+    for(i=0;i<cantSerie;i++){
+        printf("\n%d -- %s -- %s",serie[i].idSerie,serie[i].nombre,user[i].nombre);
+    }
+}
