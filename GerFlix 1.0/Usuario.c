@@ -87,7 +87,9 @@ void mostrarUsuarioConSuSerie(eUsuario user[], int cantUser, eSerie serie[], int
 
 void mostrarSerieConSuUser(eSerie serie[], int cantSerie, eUsuario user[], int cantUser){
     int i, j, auxId;
-    char auxNom[21], auxNomUser[21];
+    char auxNom[21] ;
+    int id_user = user[0].idUsuario;
+    int id_serie = serie[0].idSerie;
 
     for(i=0;i<cantSerie-1;i++){
         for(j=i+1;j<cantSerie;j++){
@@ -100,10 +102,6 @@ void mostrarSerieConSuUser(eSerie serie[], int cantSerie, eUsuario user[], int c
                     strcpy(auxNom,serie[i].nombre);
                     strcpy(serie[i].nombre,serie[j].nombre);
                     strcpy(serie[j].nombre,auxNom);
-
-                    strcpy(auxNomUser,user[i].nombre);
-                    strcpy(user[i].nombre,user[j].nombre);
-                    strcpy(user[j].nombre,auxNomUser);
                 }
             }
         }
