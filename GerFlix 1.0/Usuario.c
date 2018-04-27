@@ -15,7 +15,7 @@ void inicializarUsuariosHardCode(eUsuario usuarios[]){
     int id[15] = {1000,1001,1002,1003,1004, 1005,1006,1007,1008,1009, 1010,1011,1012,1013,1014};
     char nombre[][50]= {"Juan","Maria","Pedro","Vanesa","Jose","Luisa","Laura","Marcelo","German","Victoria","Dafne","Antonela","Gisele","Dario","Pedro"};
 
-    int serie[15] = {100,100,101,101,102,100,100,103,101,102,103,101,100,100,101};
+    int serie[15] = {100,104,101,101,102,100,100,103,101,102,103,101,100,100,101};
 
     int i;
 
@@ -54,7 +54,7 @@ void mostrarListaUsuarios(eUsuario user[], int cant){
     }
 }
 
-void mostrarUsuarioConSuSerie(eUsuario user[], int cantUser, eSerie serie[], int cantSerie){
+void mostrarUsuarioConSuSerie(eUsuario user[], int cantUser, eSerie serie[]){
     int i, j, auxId, auxIdSerie;
     char auxNom[21];
 
@@ -86,28 +86,18 @@ void mostrarUsuarioConSuSerie(eUsuario user[], int cantUser, eSerie serie[], int
 }
 
 void mostrarSerieConSuUser(eSerie serie[], int cantSerie, eUsuario user[], int cantUser){
-    int i, j, auxId;
-    char auxNom[21] ;
-    int id_user = user[0].idUsuario;
-    int id_serie = serie[0].idSerie;
+    int i, j;
 
-    for(i=0;i<cantSerie-1;i++){
-        for(j=i+1;j<cantSerie;j++){
-            if(serie[i].idSerie == user[i].idSerie){
-                if(serie[i].idSerie>serie[j].idSerie){
-                    auxId = serie[i].idSerie;
-                    serie[i].idSerie = serie[j].idSerie;
-                    serie[j].idSerie = auxId;
+    for(i=0;i<cantSerie;i++){
+        for(j=0;j<cantUser;j++){
 
-                    strcpy(auxNom,serie[i].nombre);
-                    strcpy(serie[i].nombre,serie[j].nombre);
-                    strcpy(serie[j].nombre,auxNom);
-                }
+            if(serie[i].idSerie == user[j].idSerie){
+                strcat(serie[i].nombre,user[j].nombre);
             }
         }
     }
 
     for(i=0;i<cantSerie;i++){
-        printf("\n%d -- %s -- %s",serie[i].idSerie,serie[i].nombre,user[i].nombre);
+        printf("\n%s\n",serie[i].nombre);
     }
 }

@@ -36,7 +36,7 @@ int main()
                 mostrarListaUsuarios(listaDeUsuarios,15);
                 break;
             case 3:
-                mostrarUsuarioConSuSerie(listaDeUsuarios,15,listaDeSeries,5);
+                mostrarUsuarioConSuSerie(listaDeUsuarios,15,listaDeSeries);
                 break;
             case 4:
                 mostrarSerieConSuUser(listaDeSeries,5,listaDeUsuarios,15);

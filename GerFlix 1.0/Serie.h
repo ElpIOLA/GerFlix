@@ -1,6 +1,4 @@
 
-
-
 typedef struct{
     int idSerie;
     char nombre[50];

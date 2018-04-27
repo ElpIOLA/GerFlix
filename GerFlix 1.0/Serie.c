@@ -72,3 +72,5 @@ void mostrarListaSeries(eSerie serie[], int cant){
     }
 }
 
+
+
