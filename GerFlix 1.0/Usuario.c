@@ -88,11 +88,15 @@ void mostrarUsuarioConSuSerie(eUsuario user[], int cantUser, eSerie serie[]){
 void mostrarSerieConSuUser(eSerie serie[], int cantSerie, eUsuario user[], int cantUser){
     int i, j;
 
+    char espacio[] = " ";
+
     for(i=0;i<cantSerie;i++){
         for(j=0;j<cantUser;j++){
 
             if(serie[i].idSerie == user[j].idSerie){
+                strcat(serie[i].nombre,espacio);
                 strcat(serie[i].nombre,user[j].nombre);
+
             }
         }
     }
